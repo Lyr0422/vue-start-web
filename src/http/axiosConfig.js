@@ -6,6 +6,7 @@
 
 import axios from 'axios'
 import store from '../vuex/index'
+import configs from './configs'
 
 export default function (vue) {
   //获取CancelToken
@@ -14,10 +15,9 @@ export default function (vue) {
 
   //axios请求拦截器
   axios.interceptors.request.use(config => {
+    let baseURL=configs.apiServer
     //改变URL
-    if (config.url.indexOf('/api/') === -1) {
-      config.url = '/api/' + config.url
-    }
+    config.url = (baseURL.endsWith('/') ? baseURL : baseURL + '/') + config.url
 
     //过滤重复请求
     let headers = config.headers
