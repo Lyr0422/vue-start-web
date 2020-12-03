@@ -2,7 +2,7 @@ import Vue from 'vue'
 import Vuex from 'vuex'
 import createLogger from "vuex/dist/logger";
 
-import common from 'modules/common'
+import common from './modules/common'
 
 Vue.use(Vuex)
 
